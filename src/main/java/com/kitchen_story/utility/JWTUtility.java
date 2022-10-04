@@ -1,17 +1,16 @@
 package com.kitchen_story.utility;
 
 import java.io.Serializable;
+import io.jsonwebtoken.Claims;
+import io.jsonwebtoken.Jwts;
+import io.jsonwebtoken.SignatureAlgorithm;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.stereotype.Component;
+
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.function.Function;
-
-import io.jsonwebtoken.Claims;
-import io.jsonwebtoken.Jwts;
-import io.jsonwebtoken.SignatureAlgorithm;
-
-import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.stereotype.Component;
 
 @Component
 public class JWTUtility implements Serializable {
@@ -19,14 +18,19 @@ public class JWTUtility implements Serializable {
 	/**
 	 * 
 	 */
-	private static final long serialVersionUID = 4447063615493750088L;
+	private static final long serialVersionUID = -21432932821056385L;
+
+	/**
+	 * 
+	 */
 
 	public static final long JWT_TOKEN_VALIDITY = 5 * 60 * 60;
 
-	// secrete key can be specified in the .yml file
-	// @Value("${jwt.secret}")
-	// for demo:
+	//secrete key can be specified in the .yml file
+	//@Value("${jwt.secret}")
+	//for demo: 
 	private String secretKey = "secretkey123";
+
 
 	// retrieve username from jwt token
 	public String getUsernameFromToken(String token) {

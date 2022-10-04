@@ -11,37 +11,38 @@ import com.kitchen_story.entity.AppUser;
 
 
 
-public class CustomeUserDeatails implements UserDetails{
+public class CustomerUserDetails implements UserDetails {
+
 
 	/**
 	 * 
 	 */
-	private static final long serialVersionUID = -4648377648225700883L;
+	private static final long serialVersionUID = 1L;
+	private AppUser user;
 
-	private AppUser appUser;
-
-	public CustomeUserDeatails(AppUser user) {
+	public CustomerUserDetails(AppUser user) {
 		super();
-		this.appUser = user;
+		this.user = user;
 
 	}
 
 	@Override
 	public Collection<? extends GrantedAuthority> getAuthorities() {
 		// TODO Auto-generated method stub
-		return Collections.singleton(new SimpleGrantedAuthority(appUser.getRole()));
+		System.err.println("Current AppUser: "+ user.getRole());
+		return Collections.singleton(new SimpleGrantedAuthority(user.getRole()));
 	}
 
 	@Override
 	public String getPassword() {
 		// TODO Auto-generated method stub
-		return appUser.getPassword();
+		return user.getPassword();
 	}
 
 	@Override
 	public String getUsername() {
 		// TODO Auto-generated method stub
-		return appUser.getUsername();
+		return user.getUsername();
 	}
 
 	@Override

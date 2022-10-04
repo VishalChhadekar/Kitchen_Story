@@ -21,7 +21,7 @@ import com.kitchen_story.utility.JWTUtility;
 
 
 @Component
-public class JWTFilter extends OncePerRequestFilter{
+public class JWTFilter extends OncePerRequestFilter {
 
 	@Autowired
 	private JWTUtility jwtUtility;
